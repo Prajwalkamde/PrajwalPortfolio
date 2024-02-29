@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block templates %}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Portfolio</h6>
+                <form action="{% url 'portfolio-add' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image"
+                            aria-describedby="image" name='image'  accept="image/png, image/jpeg,image/jpg">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Project Name</label>
+                        <input type="text" class="form-control" id="project_name"
+                            aria-describedby="project_name" name='project_name'>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description"
+                            aria-describedby="description" name='description'>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Link</label>
+                        <input type="text" class="form-control" id="link"
+                            aria-describedby="link" name='link'>
+                    </div>
+
+                    
+                   
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+
+{% endblock templates %}

@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+{% load static %}
+{% if messages %} {% for message in messages %}
+ {{message}}
+{% endfor %} {% endif %}
+{% block body %}
+
+    <section class="contact-page" id="contact">
+        <h2 class="page-text">Contact <span>Me</span></h2>
+        <div class="contact">
+        <div class="contact-text">
+            <h2>Prajwal <span>Kamde</span></h2>
+            <h4>If you have any project in your mind.</h4>
+            <p>I'm a Developer.</p>
+            <div class="list">
+                <li>Mobile Number : <a href="tel:">+91{{template.phone}}</a></li>
+                <li>Email : <a href="https://mail.google.com" target="_blank">{{template.email}}</a></li>
+            </div>
+            <div class="contact-icons">
+                {% for i in social %}
+
+                <a href="{{i.link}}" target="_blank"><i class='{{i.icon}}'></i></a>
+
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="contact-form">
+                <form action="{% url 'contact' %}" method="POST">
+                    {% csrf_token %}
+                <input type="text"  name="name" id="name" placeholder="Your Name " required>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <input type="number" name="phone" id="phone" placeholder="Your Number" required>
+                <textarea name="message" id="message" cols="35" rows="10" placeholder="How can i help you...." required></textarea>
+                <input type="submit" value="Send Message" class="submit" required>
+            </form>
+        </div>
+    </div>
+    </section>
+
+
+
+   
+   {% endblock body %}

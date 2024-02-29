@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block templates %}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Template</h6>
+                <form action="{% url 'site-add' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Logo</label>
+                        <input type="text" class="form-control" id="logo"
+                            aria-describedby="logo" name='logo'>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullname"
+                            aria-describedby="fullname" name='fullname'>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="" class="form-label">Phone</label>
+                        <input type="number" class="form-control" id="phone"
+                            aria-describedby="phone" name="phone">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Footer</label>
+                        <input type="text" class="form-control" id="footer"
+                            aria-describedby="footer" name="footer">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+
+{% endblock templates %}

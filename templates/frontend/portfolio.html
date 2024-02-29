@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+{% load static %}
+{% block body %}
+
+    <section class="portfolio" id="portfolio">
+        <div class="main-text">
+            <h2><span>All </span>Project</h2>
+        </div>
+        <div class="portfolio-content">
+            {% for i in portfolio %}
+            
+            
+            <div class="row">
+                <img src="{{i.image.url}}">
+                <div class="layer">
+                    <h5>{{i.project_name}}</h5>
+                    <p>{{i.description}}</p>
+                    <a href="{{i.link}}" target="_blank"><i class='bx bx-link'></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock body %}

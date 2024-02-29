@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block templates %}
+ <!-- Table Start -->
+ <div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+        </div> 
+        <div class="col-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">View Messages</h6>
+                <div class="table-responsive">
+                    {% if show %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Number</th>
+                                <th scope="col">Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {% for i in show %}
+                            <tr>
+                                <th scope="row">{{i.id}}</th>
+                                <td>{{i.name}}</td>
+                                <td>{{i.email}}</td>
+                                <td>{{i.phone}}</td>
+                                <td>{{i.message}}</td>
+                               
+                                </form></td>
+                            </tr>
+                            {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                    {% else %}
+                            <h2>There is no data to show please first add data!!!</h2>
+                            {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table End -->
+{% endblock templates %}

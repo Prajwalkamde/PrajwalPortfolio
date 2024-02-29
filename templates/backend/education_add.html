@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block templates %}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Add Education</h6>
+                <form action="{% url 'education-add' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="" class="form-label">Graduation</label>
+                        <input type="text" class="form-control" id="graduation"
+                            aria-describedby="graduation" name='graduation'>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Year</label>
+                        <input type="number" class="form-control" id="year"
+                            aria-describedby="year" name='year'>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Course</label>
+                        <input type="text" class="form-control" id="course"
+                            aria-describedby="course" name='course'>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect"
+                            aria-label="Floating label select example" name="dropdown">
+                            <option selected>Select one option</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Running">Running</option>
+                            <option value="Droped">Droped</option>
+                        </select>
+                        <label for="floatingSelect">Works with selects</label>
+                    </div>
+                    
+                   
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+
+{% endblock templates %}

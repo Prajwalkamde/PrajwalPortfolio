@@ -1,0 +1,1 @@
+web : gunicorn Prajwal.wsgi --log-file -

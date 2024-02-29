@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+    {% load static %}
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- DESCRIPTION -->
+    <meta name="description" content="This is my personal portfolio website.">
+    <!-- KEYWORD -->
+    <meta name="keywords" content="Prajwal Portfolio, Personal Portfolio, Resume, Portfolio, Website, Django Portfolio">
+   <!-- AUTHOR -->
+    <meta name="author" content="Prajwal Kamde">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'includes/img//favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'includes/img//favicon-16x16.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'includes/img//favicon-16x16.png' %}">
+    <link rel="shortcut icon" href="http://drive.google.com/uc?export=view&id=1lVOeCVMw2JyvUN4zd-M59M2v54viEtSw" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'includes/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'includes/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'includes/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'includes/css/lightbox.min.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>Prajwal Portfolio</title>
+    <script>
+        // TYPED SCRIPT HOME
+        
+        var typed =  new Typed(".auto-type",{
+        strings:  ["Fullstack Developer","Frontend Developer","Python Developer","Django Developer"],
+        typeSpeed: 150,
+        backSpeed: 150,
+        loop: true
+        })
+        // TYPED SCRIPT FOOTER
+        var typed =  new Typed(".hero",{
+            strings: ["Prajwal &#x2764;"],
+            typeSpeed: 150,
+            backSpeed: 150,
+            loop: true
+        })
+        
+        </script>
+</head>
+<body>
+    
+<!-- HEADER -->
+    <header>
+        <a href="{% url 'home' %}" class="logo">{{template.logo}}<span>.</span></a>
+        <ul class="navlist">
+            <li><a href="{% url 'home' %}" class="{% if navbar == 'page1' %} active {% endif%}">Home</a></li>
+            <li><a href="{% url 'about' %}" class="{% if navbar == 'page2' %} active {% endif%}" >About Me</a></li>
+            <li><a href="{% url 'certificate' %}" class="{% if navbar == 'page3' %} active {% endif%}">My Certificates</a></li>
+            <li><a href="{% url 'portfolio' %}" class="{% if navbar == 'page4' %} active {% endif%}">Portfolio</a></li>
+            <li><a href="{% url 'contact' %}" class="{% if navbar == 'page5' %} active {% endif%}">Contact Me</a></li>
+        </ul>
+        <div class='bx bx-menu' id="menu-icon"></div>
+    </header>
+
+    {% block body %}
+    
+    {% endblock body %}
+
+ <!-- FOOTER -->
+ <footer class="footer">
+    <div class="last-text">
+        <p>{{template.footer}} <span >{{template.full_name}}</span></p>
+    </div>
+    <div class="top">
+        <a href="#home"><i class='bx bx-chevrons-up'></i></a>
+    </div>
+</footer>
+<!-- TYPE SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<!-- gallery SCRIPT -->
+<script src="{% static 'includes/js/lightbox-plus-jquery.min.js' %}"></script>
+<script src="{% static 'includes/js//script.js' %}"></script>
+</body>
+</html>

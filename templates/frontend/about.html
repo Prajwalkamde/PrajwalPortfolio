@@ -1,0 +1,66 @@
+{% extends "master.html" %}
+{% load static %}
+{% block body %}
+
+
+    <section class="about-page">
+      <div class="about-page-text">
+        <h2>About <span>Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-page-img">
+          <img
+            src="{{about.image.url}}"
+          />
+        </div>
+        <div class="about-text">
+          <h4>Hi, I’m {{about.name}}. <span> {{about.greating}}</span></h4>
+          <p>
+            {{about.about_text | safe}}
+          </p>
+          <!-- <a href="#" class="btn">More</a> -->
+          <a
+            href="{{about.resume.url}}"
+            class="btn"
+            target="_blank"
+            >Resume <i class="bx bxs-download"></i
+          ></a>
+        </div>
+      </div>
+
+
+      <div class="skill">
+
+        <h2>TECHNICAL <span>SKILLS</span></h2>
+        <div class="skill-area">
+          {% for i in skill  %}
+          <p>{{i.skill_name}}</p>
+          <div class="container">
+            <div class="skills" style="width: {{i.skill_percentage}}%;">{{i.skill_percentage}}%</div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+      <div class="education">
+        <h2>Education</h2>
+        {% for i in education %}
+        
+     
+        <div class="edu">
+            <div class="side1">
+                
+                    <p>{{i.year}}</p>
+                    <p><span>{{i.graduation}}</span></p>
+                    <p>({{i.complete}})</p>
+                
+            </div>
+            <div class="side2">
+                <p>{{i.course}}</p>
+            </div>
+        </div>
+        {% endfor %}
+       
+      </div>
+    </section>
+    {% endblock body %}
